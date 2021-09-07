@@ -1,5 +1,5 @@
 # Introduction 
-This is the repository of our accepted CIKM 2021 paper "Continuous-Time Sequential Recommendation with Temporal Graph Collaborative Transformer" and the proposed model is TGSRec. Paper is available on [https://arxiv.org/abs/2108.06625](arxiv)
+This is the repository of our accepted CIKM 2021 paper "Continuous-Time Sequential Recommendation with Temporal Graph Collaborative Transformer" and the proposed model is TGSRec. Paper is available on [arxiv](https://arxiv.org/abs/2108.06625)
 
 # Citation
 Please cite our paper if using this code. 
