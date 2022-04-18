@@ -32,27 +32,25 @@ def preprocess(data_name, meta_path):
     #        if e['asin'] not in i_meta_map:
     #            i_meta_map[e['asin']] = e.get('title', '')
 
-    
+    data = []
     with gzip.open(data_name,'r') as f:
-        for idx, line in enumerate(f):
+        for line in f:
             e = eval(line)
-            u = u_map[e['reviewerID']]
-            i = i_map[e['asin']]
+            data.append([e['reviewerID'], e['asin'], float(e['unixReviewTime'])])
+    sorted_data = sorted(data, key=lambda x:x[2])
+    
+    for idx, eachinter in enumerate(sorted_data):
+        u = u_map[eachinter[0]]
+        i = i_map[eachinter[1]]
+        ts = eachinter[2]
+        feat = np.array([0 for _ in range(8)])
+        u_list.append(u)
+        i_list.append(i)
+        ts_list.append(ts)
+        label_list.append(label)
+        idx_list.append(idx)
             
-            
-            
-            ts = float(e['unixReviewTime'])
-            label = 1
-            
-            feat = np.array([0 for _ in range(8)])
-            
-            u_list.append(u)
-            i_list.append(i)
-            ts_list.append(ts)
-            label_list.append(label)
-            idx_list.append(idx)
-            
-            feat_l.append(feat)
+        feat_l.append(feat)
 
     user_ind_id_map = {v:k for k, v in u_map.items()}
     item_ind_id_map = {v:{'item_id': k, 'title': i_meta_map.get(k, '')} for k, v in i_map.items()}
