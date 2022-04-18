@@ -33,25 +33,25 @@ def preprocess(data_name, meta_path):
             if item_id not in i_meta_map:
                 i_meta_map[item_id] = one_item_meta[1]
 
-    
+    data = []
     with open(data_name,'r') as f:
         for idx, line in enumerate(f):
             one_interaction = line.strip().split("\t")
-            u = u_map[int(one_interaction[0])]
-            i = i_map[int(one_interaction[1])]
+            data.append([int(one_interaction[0]), int(one_interaction[1]), float(one_interaction[3])])
+    sorted_data = sorted(data, key=lambda x:x[2])
+    
+    for idx, eachinter in enumerate(sorted_data):
+        u = u_map[eachinter[0]]
+        i = i_map[eachinter[1]]
+        ts = eachinter[2]
+        feat = np.array([0 for _ in range(8)])
+        u_list.append(u)
+        i_list.append(i)
+        ts_list.append(ts)
+        label_list.append(label)
+        idx_list.append(idx)
             
-            ts = float(one_interaction[3])
-            label = 1
-            
-            feat = np.array([0 for _ in range(8)])
-            
-            u_list.append(u)
-            i_list.append(i)
-            ts_list.append(ts)
-            label_list.append(label)
-            idx_list.append(idx)
-            
-            feat_l.append(feat)
+        feat_l.append(feat)
 
     user_ind_id_map = {v:k for k, v in u_map.items()}
     item_ind_id_map = {v:{'item_id': k, 'title': i_meta_map.get(k, '')} for k, v in i_map.items()}
