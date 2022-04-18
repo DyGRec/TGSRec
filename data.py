@@ -9,7 +9,6 @@ class Data():
     def __init__(self, DATASET, args):
         ### Load data and train val test split
         g_df = pd.read_csv('./processed/ml_{}.csv'.format(DATASET))
-        g_df = g_df.sort_values(by=['ts'])
         self.split_data(g_df, args)
 
 
