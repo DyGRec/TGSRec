@@ -47,7 +47,7 @@ def preprocess(data_name, meta_path):
         u_list.append(u)
         i_list.append(i)
         ts_list.append(ts)
-        label_list.append(label)
+        label_list.append(1)
         idx_list.append(idx)
             
         feat_l.append(feat)
