@@ -1,6 +1,9 @@
 # Introduction 
 This is the repository of our accepted CIKM 2021 paper "Continuous-Time Sequential Recommendation with Temporal Graph Collaborative Transformer" and the proposed model is TGSRec. Paper is available on [arxiv](https://arxiv.org/abs/2108.06625). This work focuses on multi-steps continuous-time recommendation, where user and item embeddings are generated in any unseen future timestamps. Different from existing sequential recommendation methods, which are optimized for next-item prediction, this work is learned for recommendation in any timestamps.
 
+# Update
+As we just observed some bugs in existing code, we are rerunning the experiments and will update them to the paper as soon as possible.
+
 # Citation
 Please cite our paper if using this code. 
 ```
