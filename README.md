@@ -21,7 +21,7 @@ Please cite our paper if using this code.
 The code is implemented based on [TGAT](https://github.com/StatsDLMathsRecomSys/Inductive-representation-learning-on-temporal-graphs).
 
 ## Environment Setup
-The code is tested under a Linux desktop (w/ GTX 1080 Ti GPU) with TensorFlow 1.12 and Python 3.6.
+The code is tested under a Linux desktop (w/ GTX 1080 Ti GPU) with Pytorch and Python 3.6.
 Create the requirement with the requirements.txt
 
 ## ML-100K Dataset Execution
